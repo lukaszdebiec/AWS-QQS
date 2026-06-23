@@ -28,7 +28,8 @@ export default function App() {
 
   // Load questions from JSON
   useEffect(() => {
-    fetch('/questions.json')
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    fetch(`${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}questions.json`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Failed to fetch questions dataset');
